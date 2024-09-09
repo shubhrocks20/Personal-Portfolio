@@ -45,7 +45,7 @@ const portfolioProjects = [
       { title: "Optimized performance and responsiveness across devices" },
       { title: "Implemented modern design techniques using Tailwind CSS" },
     ],
-    link: "https://your-portfolio-link.com/",
+    link: "https://shubham-i-portfolio.vercel.app",
     image: aiStartupLandingPage,
   },
 ];
