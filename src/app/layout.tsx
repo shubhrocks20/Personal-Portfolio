@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "My Portfolio",
   description: "Created with the help of Frontend Tribe",
 };
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -22,14 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <link rel="icon" href="./favicon.jpeg" />
-
+        <meta name="cryptomus" content="337f5a70" />  {/* Added Cryptomus meta tag */}
+        <link rel="icon" href="./favicon.jpeg" />
       </head>
       <body
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-gray-900 text-white  antialiased font-sans"
+          "bg-gray-900 text-white antialiased font-sans"
         )}
       >
         {children}
