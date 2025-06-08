@@ -8,7 +8,7 @@ import SparkleIcon from "@/assets/icons/sparkle.svg";
 export const HeroSection = () => {
   return (
     <div
-      className="py-32 md:py-48 lg:py-60 relative  overflow-x-clip"
+      className="py-20 sm:py-28 md:py-48 lg:py-60 relative overflow-x-clip px-4"
       id="heroPage"
     >
       <div className="absolute pointer-events-none inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -117,19 +117,18 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-lg mx-auto px-2 sm:px-0">
           <h1 className="font-serif md:text-5xl text-3xl text-center mt-8 tracking-wide">
             Shubham Kumar
           </h1>
-          <p className="mt-4 md:text-lg text-center text-white/60">
+          <p className="mt-4 md:text-lg text-center text-white/60 text-base">
             Passionate Full-Stack Developer | Crafting High-Performance
             Applications with React, Node.js, and Tailwind CSS.
           </p>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 w-full px-2 sm:px-0">
           <a
-            href="https://drive.google.com/file/d/1eIUKzJ1IHwddWE4Y41y2HaP1E2s-nIAG/view?usp=sharing"
+            href="https://drive.google.com/file/d/1nUViydJuQF3Fh8m6vqjQBvAyf7ib5NkQ/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl"

@@ -45,7 +45,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-12 sm:py-16 lg:py-24 px-2 sm:px-0">
       <div className="container">
         <SectionHeader
           eyebrow="Friend Feedback"
@@ -53,14 +53,14 @@ export const TestimonialsSection = () => {
           description="Hear what my friends have to say about my work and skills."
         />
 
-        <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
-          <div className="flex gap-8 pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
+        <div className="mt-8 sm:mt-12 lg:mt-20 flex overflow-x-auto lg:overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
+          <div className="flex gap-4 sm:gap-8 pr-4 sm:pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
             {[...new Array(2)].fill(0).map((_, index) => (
               <Fragment key={index}>
                 {testimonials.map((testimonial) => (
                   <Card
                     key={testimonial.name}
-                    className="max-w-xs md:p-8 p-6 md:max-w-md hover:-rotate-3 transition duration-300"
+                    className="max-w-xs w-[90vw] sm:w-auto md:p-8 p-6 md:max-w-md hover:-rotate-3 transition duration-300"
                   >
                     <div className="flex gap-4 items-center">
                       <div className="size-14 bg-gray-700 rounded-full justify-center items-center flex-shrink-0">

@@ -86,18 +86,19 @@ const hobbies = [
     left: "45%",
   },
 ];
+const ludhianaCoords = { top: "54%", left: "38%" };
 
 export const AboutSection = () => {
   const constraintRef = useRef(null);
   return (
-    <div className="py-20 lg:py-28" id="aboutPage">
+    <div className="py-16 sm:py-20 lg:py-28 px-2 sm:px-0" id="aboutPage">
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
           title="A Glimpse Into My World"
           description="Learn more about who I am, What I do, and what inspires me."
         />
-        <div className="mt-20 flex flex-col gap-8">
+        <div className="mt-10 md:mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8 ">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
@@ -159,7 +160,21 @@ export const AboutSection = () => {
                 src={mapImage}
                 alt="map"
               />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
+              <div
+                className="absolute cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30"
+                style={{
+                  top: ludhianaCoords.top,
+                  left: ludhianaCoords.left,
+                  transform: "translate(-50%, -50%)",
+                }}
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/maps/place/Ludhiana,+Punjab",
+                    "_blank"
+                  )
+                }
+                title="Open Ludhiana in Google Maps"
+              >
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]"></div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10"></div>
                 <Image
