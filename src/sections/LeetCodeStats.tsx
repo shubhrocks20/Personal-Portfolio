@@ -13,17 +13,72 @@ const LeetCodeStats = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://leetcode-stats-api.herokuapp.com/bhardwajshubh")
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
+  const fetchStats = async () => {
+    setLoading(true);
+    setError(false);
+
+    try {
+      const response = await fetch('https://leetcode.com/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+            query getUserProfile($username: String!) {
+              matchedUser(username: $username) {
+                submitStats {
+                  acSubmissionNum {
+                    difficulty
+                    count
+                  }
+                }
+              }
+              allQuestionsCount {
+                difficulty
+                count
+              }
+            }
+          `,
+          variables: {
+            username: 'bhardwajshubh',
+          },
+        }),
       });
-  }, []);
+
+      const json = await response.json();
+
+      const submissions = json.data?.matchedUser?.submitStats?.acSubmissionNum || [];
+      const totals = json.data?.allQuestionsCount || [];
+
+      const easySolved = submissions.find((d : any)=> d.difficulty === 'Easy')?.count || 0;
+      const mediumSolved = submissions.find((d : any)=> d.difficulty === 'Medium')?.count || 0;
+      const hardSolved = submissions.find((d: any) => d.difficulty === 'Hard')?.count || 0;
+      const totalSolved = submissions.find((d : any)=> d.difficulty === 'All')?.count || 0;
+
+      const totalEasy = totals.find((d : any)=> d.difficulty === 'Easy')?.count || 0;
+      const totalMedium = totals.find((d : any)=> d.difficulty === 'Medium')?.count || 0;
+      const totalHard = totals.find((d : any)=> d.difficulty === 'Hard')?.count || 0;
+      const totalQuestions = totals.find((d : any)=> d.difficulty === 'All')?.count || 0;
+
+      setData({
+        easySolved,
+        mediumSolved,
+        hardSolved,
+        totalSolved,
+        totalEasy,
+        totalMedium,
+        totalHard,
+        totalQuestions,
+      });
+      setLoading(false);
+    } catch (err) {
+      setError(true);
+      setLoading(false);
+    }
+  };
+
+  fetchStats();
+}, []);
+
 
   if (loading) {
     return (
